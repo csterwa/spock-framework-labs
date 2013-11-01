@@ -14,7 +14,7 @@ class TodoController {
     }
 
     def create() {
-        Todo todo = todoService.create(params.description)
+        Todo todo = todoService.create(description: params.description)
 
         render status: HttpStatus.CREATED, text: todo as JSON
     }

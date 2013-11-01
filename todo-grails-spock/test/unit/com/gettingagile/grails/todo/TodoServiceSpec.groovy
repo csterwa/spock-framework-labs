@@ -2,6 +2,7 @@ package com.gettingagile.grails.todo
 
 import grails.test.mixin.Mock
 import grails.test.mixin.TestFor
+import org.joda.time.DateTime
 import spock.lang.Specification
 
 @TestFor(TodoService)
@@ -13,11 +14,13 @@ class TodoServiceSpec extends Specification {
         String description = "Feed the fish"
 
         when: "request to create a new todo"
-        Todo todo = service.create(description)
+        Date threeDaysFromToday = DateTime.now().plusDays(3).toDate()
+        Todo todo = service.create(description: description, dueDate: threeDaysFromToday)
 
         then: "should have a new todo with that description"
         todo.id
         todo.description == description
+        todo.dueDate == threeDaysFromToday
     }
 
 }

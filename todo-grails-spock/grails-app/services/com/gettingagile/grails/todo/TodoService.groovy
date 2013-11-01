@@ -6,7 +6,7 @@ package com.gettingagile.grails.todo
 class TodoService {
     def transactional = false
 
-    Todo create(String description) {
-        return new Todo(description: description).save()
+    Todo create(Map<String, ?> args) {
+        return new Todo(args).save()
     }
 }
