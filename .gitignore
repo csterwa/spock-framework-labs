@@ -6,6 +6,7 @@ web-app/WEB-INF
 # IDE support files
 .idea
 *.iml
+*.ipr
 .classpath
 .launch
 .project
@@ -14,6 +15,9 @@ web-app/WEB-INF
 *.tmproj
 ivy*
 eclipse
+.gradle
+build
+out
 
 # default HSQL database files for production mode
 /prodDb.*
