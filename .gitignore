@@ -18,6 +18,7 @@ eclipse
 .gradle
 build
 out
+*.tld
 
 # default HSQL database files for production mode
 /prodDb.*
