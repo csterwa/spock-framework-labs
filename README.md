@@ -18,7 +18,7 @@ Grails project.
 * For Eclipse go to http://stackoverflow.com/questions/3107329/is-there-a-grails-command-to-regenerate-project-files-for-eclipse-or-sts
 
 To run the Spock specifications, just run the normal Grails command from your IDE run menus. From a terminal you can
-also execute the tests using the Grails wrapper from the todo-grails-spock directory like so:
+also execute the specifications using the Grails wrapper from the todo-grails-spock directory like so:
 
 ```
 ./grailsw test-app
@@ -28,7 +28,30 @@ To add new Spock specifications, add a new Groovy class in the test/unit directo
 and make sure that the class extends spock.lang.Specification. Then take a look at the other tests to see how you can
 define your own scenarios.
 
+To run the Grails server and connect to the REST endpoints, you can run the Grails application as usual with:
+
+```
+./grailsw run-app
+```
+
 Dropwizard Todo Application Lab
 ====================
 
-Coming soon...
+To get started with the Dropwizard Todo Application Lab, import todo-dropwizard-spock into your favorite IDE as a
+Gradle project:
+
+* For IntelliJ go to http://www.jetbrains.com/idea/webhelp/importing-project-from-gradle-model.html
+* For Eclipse go to http://www.gradle.org/docs/current/userguide/eclipse_plugin.html
+
+To run the Spock specification, just run the normal Gradle command for 'build' from your IDE run menus. From a terminal
+you may also execute the specifications using the Gradle wrapper from the todo-dropwizard-spock directory like so:
+
+```
+./gradlew build
+```
+
+To run the Dropwizard server and connect to the REST endpoints, you can use the 'run' target using Gradle like so:
+
+```
+./gradlew run
+```
