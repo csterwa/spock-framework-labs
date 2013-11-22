@@ -3,6 +3,8 @@ package com.gettingagile.grails.todo
 import grails.test.mixin.Mock
 import grails.test.mixin.TestFor
 import org.springframework.http.HttpStatus
+import spock.lang.Ignore
+import spock.lang.IgnoreRest
 import spock.lang.Specification
 
 @TestFor(TodoController)
@@ -10,7 +12,7 @@ import spock.lang.Specification
 class TodoControllerSpec extends Specification {
 
     def setup() {
-        controller.todoService = new TodoService()
+        controller.todoService = Mock(TodoService)
     }
 
     void "should list todos"() {
@@ -50,11 +52,13 @@ class TodoControllerSpec extends Specification {
         given: "new todo description in params"
         params.description = "Change the tires"
 
+        and: "a mock todo service"
+        1 * controller.todoService.create(_ as Map) >> { return new Todo(description: params.description).save() }
+
         when: "we request to create a new todo"
         controller.create()
 
         then: "should have a new todo with the description given"
-        Todo.findByDescription(params.description)
         response.status == HttpStatus.CREATED.value()
         response.json.id
         response.json.description == params.description
