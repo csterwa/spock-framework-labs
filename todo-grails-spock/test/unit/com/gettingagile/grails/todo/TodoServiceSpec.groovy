@@ -13,8 +13,10 @@ class TodoServiceSpec extends Specification {
         given: "a description"
         String description = "Feed the fish"
 
-        when: "request to create a new todo"
+        and: "number of days from today when its due"
         Date threeDaysFromToday = DateTime.now().plusDays(3).toDate()
+
+        when: "request to create a new todo"
         Todo todo = service.create(description: description, dueDate: threeDaysFromToday)
 
         then: "should have a new todo with that description"

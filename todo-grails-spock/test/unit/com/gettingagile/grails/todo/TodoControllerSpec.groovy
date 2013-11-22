@@ -37,10 +37,10 @@ class TodoControllerSpec extends Specification {
         assert washDishes.id
         params.id = washDishes.id
 
-        when: "we request todos"
+        when: "we request the todo with the id"
         controller.index()
 
-        then: "should get all of them back in response"
+        then: "should get only the todo asked for"
         response.status == HttpStatus.OK.value()
         response.json.id == washDishes.id
         response.json.description == washDishes.description

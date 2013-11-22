@@ -3,6 +3,7 @@ package com.gettingagile.grails.todo
 import grails.test.mixin.TestFor
 import org.joda.time.DateTime
 import spock.lang.Specification
+import spock.lang.Unroll
 
 @TestFor(Todo)
 class TodoSpec extends Specification {
@@ -39,6 +40,7 @@ class TodoSpec extends Specification {
         todo.validate()
     }
 
+    @Unroll
     void "should supply how many days until todo is due"() {
         expect:
         todo.daysUntilDue() == days
